@@ -1,0 +1,17 @@
+service: lambda-barcode-py
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.10
+
+functions:
+  main:
+    handler: handler.get_barcode
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+plugins:
+  - serverless-python-requirements
